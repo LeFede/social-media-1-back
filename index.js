@@ -9,7 +9,7 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    sayHi: () => 'Hello World'
+    sayHi: () => 'Hello World' 
   }
 }
 
@@ -18,5 +18,5 @@ const server = new ApolloServer({
   resolvers
 })
 
-server.listen({ port: 3000 })
+server.listen(process.env.PORT)
   .then(({url}) => console.log(`Server running at ${url}`))
