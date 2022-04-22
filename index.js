@@ -1,4 +1,4 @@
-import { ApolloServer } from "apollo-server-express";
+import { ApolloServer } from "apollo-server";
 import gql from 'graphql-tag'
 
 const typeDefs = gql`
@@ -8,5 +8,15 @@ const typeDefs = gql`
 `
 
 const resolvers = {
-  
+  Query: {
+    sayHi: () => 'Hello World'
+  }
 }
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers
+})
+
+server.listen({ port: 3000 })
+  .then(({url}) => console.log(`Server running at ${url}`))
