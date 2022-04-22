@@ -18,5 +18,5 @@ const server = new ApolloServer({
   resolvers
 })
 
-server.listen(process.env.PORT)
+server.listen({ port: process.env.PORT  || 4000 })
   .then(({url}) => console.log(`Server running at ${url}`))
